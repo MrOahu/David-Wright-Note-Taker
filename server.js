@@ -2,6 +2,7 @@ const express = require('express');
 const path = require('path');
 //const api = require('./routes/index.js');
 
+
 const PORT = process.env.PORT || 3001;
 
 const app = express();
@@ -24,8 +25,12 @@ app.get('/notes', (req, res) =>
   res.sendFile(path.join(__dirname, '/public/notes.html'))
 );
 
+app.get("/api/notes", (req, res) =>{
+ 
+})
 
-//base url: http://localhost:3001/notes
+
+//base url: http://localhost:3001/
 app.listen(PORT, () =>
   console.log(`App listening at http://localhost:${PORT}`)
 );
