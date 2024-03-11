@@ -26,8 +26,18 @@ app.get('/notes', (req, res) =>
   res.sendFile(path.join(__dirname, '/public/notes.html'))
 );
 
+// get route with response in json
 app.get("/api/notes", (req, res) =>{
   res.json(dbJson)
+})
+
+// post route with both request and response
+app.post("/api/notes", (req, res) =>{
+ let newNote = {
+ title: req.body.title,
+ text: req.body.text,
+ id: Math.random()
+ }
 })
 
 

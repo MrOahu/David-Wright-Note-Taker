@@ -36,13 +36,14 @@ const getNotes = () =>
     }
   });
 
-const saveNote = (note) =>
+const saveNote = (newNote) =>
   fetch('/api/notes', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify(note)
+    // req.body accepts input values that are used in route
+    body: JSON.stringify(newNote)
   });
 
 const deleteNote = (id) =>
