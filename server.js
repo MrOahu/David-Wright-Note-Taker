@@ -2,6 +2,7 @@ const express = require('express');
 const path = require('path');
 //const api = require('./routes/index.js');
 let dbJson = require("./db/db.json")
+const fs = require("fs")
 
 
 const PORT = process.env.PORT || 3001;
@@ -33,11 +34,19 @@ app.get("/api/notes", (req, res) =>{
 
 // post route with both request and response
 app.post("/api/notes", (req, res) =>{
+// this is the request
  let newNote = {
  title: req.body.title,
  text: req.body.text,
  id: Math.random()
  }
+
+ dbJson.push(newNote)
+
+ fs.writeFileSync("./db/db.json", JSON.stringify(dbJson))
+
+// this is the response
+res.json(dbJson)
 })
 
 
