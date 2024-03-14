@@ -1,6 +1,5 @@
 const express = require('express');
 const path = require('path');
-//const api = require('./routes/index.js');
 let dbJson = require("./db/db.json")
 const fs = require("fs")
 
@@ -13,7 +12,7 @@ const app = express();
 // Middleware for parsing JSON and urlencoded form data
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-//app.use('/api', api);
+
 
 app.use(express.static('public')); // static assets ie front end files
 
